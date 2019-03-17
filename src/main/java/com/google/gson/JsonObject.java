@@ -1,8 +1,12 @@
 package com.google.gson;
 
+import def.js.Array;
+
 import jsweet.util.Lang;
 
+import java.util.Arrays;
 import java.util.HashSet;
+import java.util.Set;
 
 import static def.js.Globals.undefined;
 import static jsweet.util.Lang.*;
@@ -46,8 +50,8 @@ public class JsonObject extends JsonElement {
         asObject().$set(property, bool(value));
     }
 
-    public HashSet<String> keySet() {
-        return new HashSet<>(Lang.any(def.js.Object.keys(o)));
+    public Set<String> keySet() {
+        return new HashSet<>(Arrays.asList(Lang.array(Lang.<Array<String>> any(def.js.Object.keys(o)))));
     }
 
     public int size() {
